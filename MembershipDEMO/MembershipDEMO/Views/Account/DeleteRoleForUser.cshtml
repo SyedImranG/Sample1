@@ -1,0 +1,39 @@
+﻿@model MembershipDEMO.Models.AssignRoleVM
+@{
+    ViewBag.Title = "DeleteRoleForUser";
+}
+
+<h2>DeleteRoleForUser</h2>
+
+<h3>Delete A User from a Role</h3>
+<div>
+    @using (Html.BeginForm("DeleteRoleForUser", "Account"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="message-success">@ViewBag.ResultMessage</div>
+      
+        <table cellpadding="3">
+            <tr>
+                <td>User Name :</td>
+                <td>@Html.DropDownListFor(m => m.UserName, new SelectList(Model.Userlist, "Value", "Text"), new { style = "width:200px", @class = "dropdown1" })
+                    @Html.ValidationMessageFor(m => m.UserName)</td>
+
+            </tr>
+            <tr>
+                <td>Role Name:</td>
+                <td>
+                    @Html.DropDownListFor(m => m.RoleName, new SelectList(Model.RolesList, "Value", "Text"), new { style = "width:200px", @class = "dropdown1" })
+                    @Html.ValidationMessageFor(m => m.RoleName)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Save" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>

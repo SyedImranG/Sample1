@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h3>Roles Management</h3>
+<ol class="round">
+    <li class="one">
+        @Html.ActionLink("List of all roles", "RoleIndex", "Account")
+    </li>
+
+    <li class="two">
+        @Html.ActionLink("Assign Role To User", "RoleAddToUser", "Account")
+    </li>
+
+    <li class="three">
+        @Html.ActionLink("CreateRole", "RoleCreate", "Account")
+    </li>
+
+    <li class="four">
+        @Html.ActionLink("DeleteRole", "DeleteRoleForUser", "Account")
+    </li>
+
+    <li class="five">
+        @Html.ActionLink("List of all roles Assign to User", "DisplayAllUserroles", "Account")
+    </li>
+</ol>

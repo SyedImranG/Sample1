@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "RoleIndex";
+}
+
+<div class="spacerBody">
+    @Html.ActionLink("Create New Role", "RoleCreate") | @Html.ActionLink("Add Role to User", "RoleAddToUser")
+    <h2>Role Index</h2>
+    <table>
+        @foreach (string rolename in Model)
+        {
+            <tr>
+                <td>@rolename</td>
+                <td>
+                    <span onclick="return confirm('Are you sure to delete?')">
+                        <a href="/Account/RoleDelete?RoleName=@rolename" class="delLink">Delete</a>
+                    </span>
+                </td>
+            </tr>
+           
+        }
+
+    </table>
+</div>

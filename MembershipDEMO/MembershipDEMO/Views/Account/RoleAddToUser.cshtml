@@ -1,0 +1,48 @@
+﻿@model MembershipDEMO.Models.AssignRoleVM
+
+@{
+    ViewBag.Title = "RoleAddToUser";
+}
+
+
+<div class="spacerBody">
+    <p>&nbsp;</p>
+    @Html.ActionLink("Create New Role", "RoleCreate") | @Html.ActionLink("Roles", "RoleIndex")
+
+    <h2>Role Add to User</h2>
+
+    @using (Html.BeginForm("RoleAddToUser", "Account"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="message-success">@ViewBag.ResultMessage</div>
+      
+        <table cellpadding="3">
+            <tr>
+                <td>User Name :</td>
+                <td>@Html.DropDownListFor(m => m.UserName, new SelectList(Model.Userlist, "Value", "Text"), new { style = "width:200px", @class = "dropdown1" })
+                    @Html.ValidationMessageFor(m => m.UserName)</td>
+
+            </tr>
+            <tr>
+                <td>Role Name:</td>
+                <td>
+                    @Html.DropDownListFor(m => m.RoleName, new SelectList(Model.RolesList, "Value", "Text"), new { style = "width:200px", @class = "dropdown1" })
+                    @Html.ValidationMessageFor(m => m.RoleName)
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <input type="submit" value="Save" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+
+
+
